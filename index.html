@@ -1,36 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Para vos ❤️</title>
+  <meta charset="UTF-8" />
+  <title>Nuestro Árbol</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div id="contador">
-    <h2>Mi amor por vos comenzó hace</h2>
-    <p id="tiempo"></p>
+  <h1>Mi amor por vos comenzó hace</h1>
+  <h2 id="contador"></h2>
+
+  <button id="playBtn">▶ Play</button>
+
+  <!-- Música -->
+  <audio id="musica" preload="auto">
+    <source src="Morat - A Dónde Vamos (Video Oficial).mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Mapa -->
+  <div class="mapa">
+    <iframe
+      src="https://www.google.com/maps?q=-32.940241,-60.672443&z=17&output=embed"
+      loading="lazy">
+    </iframe>
   </div>
 
-  <button id="play">▶ Play</button>
-
-  <audio id="musica" src="music/a-donde-vamos.mp3"></audio>
-
-  <div id="mapa-wrap">
-    <div id="mapa"></div>
-    <div id="corazon">❤️</div>
+  <!-- Fotos -->
+  <h3>Nuetros recuerdos</h3>
+  <div class="polaroids">
+    <img src="WhatsApp Image 2026-02-06 at 10.31.34 (1).jpeg">
+    <!-- podés agregar más imágenes acá -->
   </div>
-
-  <div id="polaroids">
-    <div class="polaroid p1"><img src="img/foto1.jpg"></div>
-    <div class="polaroid p2"><img src="img/foto2.jpg"></div>
-    <div class="polaroid p3"><img src="img/foto3.jpg"></div>
-    <div class="polaroid p4"><img src="img/foto4.jpg"></div>
-    <div class="polaroid p5"><img src="img/foto5.jpg"></div>
-    <div class="polaroid p6"><img src="img/foto6.jpg"></div>
-  </div>
-
-  <p class="firma">By G ❤️</p>
 
   <script src="script.js"></script>
 </body>
