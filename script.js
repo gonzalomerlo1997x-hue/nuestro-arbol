@@ -20,11 +20,13 @@ actualizarTiempo();
 
 // PLAY
 document.getElementById("play").onclick = () => {
+  const musica = document.getElementById("musica");
+  musica.play().catch(() => {});
 
-  document.getElementById("mapa").style.display = "block";
-  document.getElementById("zona-arbol").style.display = "block";
-
-  document.getElementById("mapa").innerHTML = `
+  // MAPA
+  const mapa = document.getElementById("mapa");
+  mapa.style.display = "block";
+  mapa.innerHTML = `
     <iframe
       width="100%"
       height="320"
@@ -34,12 +36,19 @@ document.getElementById("play").onclick = () => {
     </iframe>
   `;
 
-  const frutos = document.querySelectorAll(".fruto");
+  // CORAZÓN
+  const corazon = document.getElementById("corazon");
+  corazon.style.animation = "latir 1.2s infinite";
 
-  frutos.forEach((fruto, i) => {
+  // POLAROIDS
+  const cont = document.getElementById("polaroids");
+  cont.style.display = "block";
+
+  const polaroids = document.querySelectorAll(".polaroid");
+  polaroids.forEach((p, i) => {
     setTimeout(() => {
-      fruto.style.opacity = 1;
-      fruto.style.transform = "scale(1)";
+      p.style.opacity = 1;
+      p.style.transform = p.style.transform.replace("scale(0.6)", "scale(1)");
     }, i * 900);
   });
 };
