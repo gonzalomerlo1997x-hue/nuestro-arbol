@@ -21,7 +21,7 @@ function actualizarContador() {
 setInterval(actualizarContador, 1000);
 actualizarContador();
 
-// Música
+// Música con fade in
 const playBtn = document.getElementById("playBtn");
 const musica = document.getElementById("musica");
 let started = false;
@@ -41,7 +41,7 @@ playBtn.addEventListener("click", () => {
       }
     }, 200);
 
-    playBtn.textContent = "❤️ Sonando";
+    playBtn.textContent = "💗 Sonando";
     started = true;
   }
 });
