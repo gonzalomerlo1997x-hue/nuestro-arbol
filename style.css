@@ -83,7 +83,7 @@ button:hover {
 }
 
 .polaroids img:hover {
-  transform: scale(1.05) rotate(0deg);
+  transform: scale(1) rotate(0deg);
 }
 
 /* MENSAJE FINAL */
