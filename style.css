@@ -16,9 +16,9 @@ body {
 
 #play {
   margin: 20px;
-  padding: 12px 28px;
+  padding: 12px 30px;
   font-size: 18px;
-  border-radius: 20px;
+  border-radius: 30px;
   border: none;
   background: #e63946;
   color: white;
@@ -32,9 +32,41 @@ body {
   margin-top: 20px;
 }
 
-#arbol {
+#zona-arbol {
+  position: relative;
   width: 420px;
-  max-width: 90%;
-  margin: 30px auto 10px;
+  max-width: 95%;
+  margin: 30px auto;
   display: none;
+}
+
+#arbol {
+  width: 100%;
+}
+
+/* FRUTOS */
+.fruto {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 1s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* POSICIONES */
+.f1 { top: 60px; left: 80px; }
+.f2 { top: 40px; left: 200px; }
+.f3 { top: 120px; left: 260px; }
+.f4 { top: 150px; left: 120px; }
+.f5 { top: 200px; left: 220px; }
+.f6 { top: 180px; left: 60px; }
+
+.firma {
+  margin-bottom: 30px;
+  font-style: italic;
+  color: #555;
 }
