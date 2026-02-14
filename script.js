@@ -1,54 +1,46 @@
-// FECHA DE INICIO
+// Fecha inicio: 12/09/2023 16:23
 const inicio = new Date("2023-09-12T16:23:00");
+const contador = document.getElementById("contador");
 
-// CONTADOR
-function actualizarTiempo() {
+function actualizarContador() {
   const ahora = new Date();
-  const diff = ahora - inicio;
+  let diff = ahora - inicio;
 
   const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const horas = Math.floor(diff / (1000 * 60 * 60)) % 24;
-  const minutos = Math.floor(diff / (1000 * 60)) % 60;
-  const segundos = Math.floor(diff / 1000) % 60;
+  diff %= (1000 * 60 * 60 * 24);
+  const horas = Math.floor(diff / (1000 * 60 * 60));
+  diff %= (1000 * 60 * 60);
+  const minutos = Math.floor(diff / (1000 * 60));
+  diff %= (1000 * 60);
+  const segundos = Math.floor(diff / 1000);
 
-  document.getElementById("tiempo").innerText =
-    `${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos`;
+  contador.textContent = `${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos`;
 }
 
-setInterval(actualizarTiempo, 1000);
-actualizarTiempo();
+setInterval(actualizarContador, 1000);
+actualizarContador();
 
-// PLAY
-document.getElementById("play").onclick = () => {
-  const musica = document.getElementById("musica");
-  musica.play().catch(() => {});
+// Música
+const playBtn = document.getElementById("playBtn");
+const musica = document.getElementById("musica");
+let started = false;
 
-  // MAPA
-  const mapa = document.getElementById("mapa");
-  mapa.style.display = "block";
-  mapa.innerHTML = `
-    <iframe
-      width="100%"
-      height="320"
-      style="border:0"
-      loading="lazy"
-      src="https://maps.google.com/maps?q=-32.940241,-60.672443&z=17&output=embed">
-    </iframe>
-  `;
+playBtn.addEventListener("click", () => {
+  if (!started) {
+    musica.volume = 0;
+    musica.play();
 
-  // CORAZÓN
-  const corazon = document.getElementById("corazon");
-  corazon.style.animation = "latir 1.2s infinite";
+    let vol = 0;
+    const fade = setInterval(() => {
+      if (vol < 1) {
+        vol += 0.05;
+        musica.volume = vol;
+      } else {
+        clearInterval(fade);
+      }
+    }, 200);
 
-  // POLAROIDS
-  const cont = document.getElementById("polaroids");
-  cont.style.display = "block";
-
-  const polaroids = document.querySelectorAll(".polaroid");
-  polaroids.forEach((p, i) => {
-    setTimeout(() => {
-      p.style.opacity = 1;
-      p.style.transform = p.style.transform.replace("scale(0.6)", "scale(1)");
-    }, i * 900);
-  });
-};
+    playBtn.textContent = "❤️ Sonando";
+    started = true;
+  }
+});
