@@ -27,7 +27,7 @@ document.getElementById("play").onclick = () => {
       height="300"
       style="border:0"
       loading="lazy"
-      src="https://maps.google.com/maps?q=-32.940241,-60.672443&z=17&output=embed">
+      src="https://maps.app.goo.gl/12omeC9Pb6Fu2PUT9">
     </iframe>
   `;
 };
