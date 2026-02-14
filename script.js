@@ -14,7 +14,8 @@ function actualizarContador() {
   diff %= (1000 * 60);
   const segundos = Math.floor(diff / 1000);
 
-  contador.textContent = `${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos`;
+  contador.textContent =
+    `${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos`;
 }
 
 setInterval(actualizarContador, 1000);
